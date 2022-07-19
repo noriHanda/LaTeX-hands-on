@@ -1,0 +1,11 @@
+\documentclass{ltjsarticle}
+\usepackage{luatexja}
+
+
+\begin{document}
+% myref.bib で登録したラベルを参照する
+Hartshorneは代数幾何学の定番の教科書である．和書で言えば上野 \cite{sasaiAccelerometerassessedPhysicalActivity2022}がある．
+
+\bibliographystyle{jplain} % jplain.bstの読み込み。参考文献の表示形式を指定する。拡張子はつけない
+\bibliography{test} % myref.bibの読み込み。複数のbibファイルを読み込む場合は {myref,myref2} とスペースを入れないで書く
+\end{document}

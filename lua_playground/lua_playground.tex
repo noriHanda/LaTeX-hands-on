@@ -1,0 +1,45 @@
+\documentclass{ltjsarticle}
+\usepackage{luatexja}
+\usepackage{luacode}
+\usepackage{amsmath}
+
+\begin{luacode*}
+    function my_random(n)
+        tex.sprint(math.random(n))
+    end
+\end{luacode*}
+\newcommand{\myRandom}[1]{%
+    \directlua{my_random(#1)}%
+}
+
+\title{Luaで遊んでみよう}
+\author{はんちゃん}
+\date{\today}
+
+\begin{document}
+\maketitle
+$\sqrt{2}$ は \directlua{tex.sprint(math.sqrt(2))} です。しかし \verb|\directlua{}| の内部は lua 言語で書くはずが、\TeX 言語の仕様に準拠してしまうという欠点があります。\\
+そこでプリアンブルに \verb|\usepackage{luacode}| を追加して、\verb|luacode*| 環境を使います。\\
+早速使ってみましょう。\\
+42 mod 5 の答えは
+\begin{luacode*}
+    local value = 42 % 5
+    tex.sprint(value)
+\end{luacode*}
+です。
+
+\verb|\begin{}\end{}|を使って書くのですが、デフォルトではブロック形式にならず、inlineに表示されます。ちなみに \verb|luacode*| と \verb|luacode| との違いは微妙にあるようですが、ほとんどの場合 \verb|luacode*| としていれば問題ないようです。ただし、 \verb|luacode*| ブロックの中ではマクロが使えない点は注意です。
+\verb|luacode| ブロックでは使えます。
+
+\section{マクロを書いて表示させてみよう}
+
+プリアンブルらへんに関数とマクロの定義をして、マクロを呼び出すだけで使えます。\\
+$\myRandom{3}, \myRandom{8}, \myRandom{10}$
+
+\section{FizzBuzz}
+\begin{luacode*}
+    function fizz_buzz()
+\end{luacode*}
+
+
+\end{document}

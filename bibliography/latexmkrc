@@ -1,0 +1,4 @@
+$ENV{'TZ'} = 'Asia/Tokyo';
+$pdflatex = 'lualatex';
+$pdf_mode = 1;
+$bibtex = 'pbibtex';

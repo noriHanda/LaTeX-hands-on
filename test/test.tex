@@ -1,0 +1,20 @@
+\documentclass{ltjsarticle}
+\usepackage{luatexja}
+\title{Sample Project}
+\author{半田寛明}
+\date{\today}
+\begin{document}
+\maketitle
+\section{初めに}
+これが \LaTeX ので出力された PDF になります。
+% $$
+%     \int_a^bf(x)dx=\lim_{n \to \infty}\sum_{i = 1}^n f(x_i)\Delta x
+% $$
+\begin{eqnarray*}
+    \int_a^bf(x)dx=\lim_{n \to \infty}\sum_{i = 1}^n f(x_i)\Delta x\\
+    a_{rot}^2=2b_1^{i\theta}
+\end{eqnarray*}
+
+このような数式もスムーズに記述できますし、
+ソースコードを記述しているので git による管理も簡単です。
+\end{document}
